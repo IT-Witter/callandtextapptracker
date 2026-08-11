@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark, high-contrast, thumb-friendly. These are phone-first screens. */
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #0f1115;
+  color: #f3f5f9;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  /* Respect the iOS home-bar area so the bottom nav isn't cut off. */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Stop iOS Safari from zooming when a text input is focused. */
+input,
+select,
+textarea,
+button {
+  font-size: 16px;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-edge bg-panel p-4;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 font-semibold
+           transition-colors select-none;
+    min-height: 48px; /* comfortable tap target */
+  }
+
+  .btn-call {
+    @apply btn bg-emerald-600 text-white active:bg-emerald-700;
+  }
+
+  .btn-text {
+    @apply btn bg-sky-600 text-white active:bg-sky-700;
+  }
+
+  .btn-ghost {
+    @apply btn border border-edge bg-panel2 text-slate-200 active:bg-edge;
+  }
+
+  .btn-disabled {
+    @apply btn cursor-not-allowed border border-edge bg-panel2 text-muted;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-edge bg-panel2
+           px-2.5 py-1 text-xs font-medium text-slate-300;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-edge bg-panel2 px-3 py-3 text-slate-100
+           outline-none placeholder:text-muted focus:border-sky-500;
+  }
+}
