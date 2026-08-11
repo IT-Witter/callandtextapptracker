@@ -8,8 +8,10 @@
 
 ## 1. Getting in
 
-1. Open the app link on your phone.
-2. Type the **team PIN**.
+**👉 [wittercalltracker.vercel.app](https://wittercalltracker.vercel.app)**
+
+1. Open that link on your phone.
+2. Type the **team PIN** (ask Seth — see the note below).
 3. Tap **your name**.
 
 That's it. No password. You stay signed in for 30 days, so you'll normally only
@@ -19,6 +21,10 @@ do this once.
 
 - **iPhone (Safari):** Share → *Add to Home Screen*
 - **Android (Chrome):** ⋮ → *Add to Home screen*
+
+> **The PIN is deliberately not written in this file.** This document lives in a
+> public GitHub repo, and the PIN is the only thing standing between the internet
+> and 60 customers' phone numbers. Seth passes it around by text or in person.
 
 **If you tapped the wrong name:** hit **Switch** in the top right and pick again.
 Nothing is logged under a name until you actually save a call or text, so a
@@ -292,8 +298,13 @@ clear **Last Outcome** in Airtable and they come back into the queue.
 **Reviewing the team's work** — open the `Touches` table in Airtable and group by
 **By**. That's every call and text, per person, with dates and notes.
 
-**Changing the PIN** — set `APP_PIN` in the Vercel environment variables and
-redeploy. Do this whenever someone leaves.
+**Changing the PIN** — Vercel → **Settings → Environment Variables** → edit
+`APP_PIN`, then **redeploy**. The change does nothing until you redeploy. Do this
+whenever someone leaves.
+
+Changing the PIN doesn't kick out people who are already signed in — their session
+runs its full 30 days. To force everyone to sign in again immediately, rotate
+`SESSION_SECRET` too; that invalidates every existing cookie.
 
 **Adding a person** — needs a small code change (`USERS` in `src/lib/types.ts`)
 plus a new option on `Assigned To`, `Called By` and `Texted By` in Airtable. Ask

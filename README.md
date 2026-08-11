@@ -65,17 +65,16 @@ The source data has mixed formats (`5137802507`, `978-771-9504`, `13147233332`,
 isn't a valid 10-digit US number renders with a **⚠ Check number** flag and
 disabled Call/Text buttons rather than dialing something wrong.
 
-## Deploying to Vercel
+## Deployment
 
-```bash
-npm i -g vercel
-vercel
-```
+Live at **https://wittercalltracker.vercel.app**, deployed from `main` on Vercel.
 
-Then add `AIRTABLE_TOKEN`, `APP_PIN` and `SESSION_SECRET` under
-**Project → Settings → Environment Variables** and redeploy. Send the team the
-URL and the PIN. On iPhone, Safari → Share → *Add to Home Screen* makes it feel
-like an app.
+Three environment variables must be set under **Project → Settings → Environment
+Variables**: `AIRTABLE_TOKEN`, `APP_PIN`, `SESSION_SECRET`. **Changes to these
+don't take effect until you redeploy** (Deployments → ⋯ → Redeploy).
+
+The live PIN is not stored in this repo. It's kept in `TEAM-ACCESS.local.md`,
+which is gitignored.
 
 ## Security notes
 

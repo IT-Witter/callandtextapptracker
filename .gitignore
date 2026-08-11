@@ -5,6 +5,9 @@ build/
 .env
 .env.local
 .env*.local
+
+# Local-only notes that contain live credentials (the team PIN, etc.)
+*.local.md
 next-env.d.ts
 *.tsbuildinfo
 .DS_Store
