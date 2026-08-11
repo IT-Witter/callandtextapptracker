@@ -7,6 +7,9 @@ Airtable base — Airtable stays the single source of truth.
 Users: **Seth, Ben, Marley, Colton**. They enter a shared PIN, tap their name, and
 work their queue.
 
+> 📋 **[SOP.md](SOP.md)** — how to actually use the app day to day. Send that to
+> the team; this README is the technical setup.
+
 ## Setup
 
 ```bash
